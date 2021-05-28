@@ -1,11 +1,8 @@
+<%@page import="org.springframework.ui.Model"%>
 <%@page import="com.model2.mvc.service.domain.Product"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-
-<%
-	Product vo=(Product)request.getAttribute("product");
-%>
 
 <html>
 <head>
@@ -48,7 +45,7 @@
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="105"><%=vo.getProdName() %></td>
+					<td width="105">${product.prodName}</td>
 					<td></td>
 				</tr>
 			</table>
@@ -63,7 +60,7 @@
 			상품상세정보 <img  src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01"><%=vo.getProdDetail() %></td>
+		<td class="ct_write01">${product.prodDetail}</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -74,7 +71,7 @@
 			제조일자<img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01"><%=vo.getManuDate() %></td>
+		<td class="ct_write01">${product.manuDate}</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -84,7 +81,7 @@
 			가격<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01"><%=vo.getPrice() %></td>
+		<td class="ct_write01">${product.price}</td>
 	</tr>
 
 	<tr>

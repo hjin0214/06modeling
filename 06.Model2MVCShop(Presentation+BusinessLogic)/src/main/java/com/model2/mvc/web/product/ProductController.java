@@ -49,13 +49,13 @@ public class ProductController {
 	
 	
 	@RequestMapping("/addProduct.do")
-	public String addUser( @ModelAttribute("product") Product product ) throws Exception {
+	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
 
 		System.out.println("/addProduct.do");
 		//Business Logic
 		productService.addProduct(product);
 		
-		return "redirect:/product/addProduct.jsp";
+		return "forward:/product/addProduct.jsp";
 	}
 	
 	@RequestMapping("/getProduct.do")
@@ -79,7 +79,7 @@ public class ProductController {
 		// Model 과 View 연결
 		model.addAttribute("product", product);
 		
-		return "forward:/product/getProduct.jsp";
+		return "forward:/product/updateProductView.jsp";
 	}
 	
 	@RequestMapping("/updateProduct.do")
@@ -100,7 +100,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/listProduct.do")
-	public String listProduct( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
+	public String listProduct( @ModelAttribute("search") Search search , Model model , HttpServletRequest request, @RequestParam("menu") String menu) throws Exception{
 		
 		System.out.println("/listProduct.do");
 		
@@ -119,6 +119,9 @@ public class ProductController {
 		model.addAttribute("list", map.get("list"));
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
+		model.addAttribute("menu", menu);		
+		System.out.println("menu 어떻게 받아올까 : " +menu);
+//		request.setAttribute("menu", request.getParameter("menu"));
 		
 		return "forward:/product/listProduct.jsp";
 	}

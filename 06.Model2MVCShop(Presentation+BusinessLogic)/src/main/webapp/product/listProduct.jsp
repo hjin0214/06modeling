@@ -1,14 +1,16 @@
 
 <%@page import="java.net.URLEncoder"%>
+<%@page import="org.springframework.ui.Model"%>
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <html>
 <head>
-<title>상품 목록조회</title>
+<title>상품 목록조회좀나오자</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
@@ -40,18 +42,20 @@ function fncGetList(currentPage) {
 					
 					<c:choose>
 						<c:when test = "${menu=='search'}">
-							상품목록 조회
+							상품목록 조회 
 						</c:when>
 						<c:when test = "${menu=='manage'}">
-							상품 수정
+							상품 관리
 						</c:when>
 					</c:choose>
-
+					${menu}
+					
 				</tr>
 			</table>
 		</td>
 		<td width="12" height="37">
 			<img src="/images/ct_ttl_img03.gif" width="12" height="37"/>
+		</td>
 		</td>
 	</tr>
 </table>
